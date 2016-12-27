@@ -1,11 +1,3 @@
-# dockerfiles
+# latex-docker 
 
-Here are some Dockerfiles.
-
-Since Docker Hub does not have GitLab integration (as of the writing of this
-file), this repository is hosted both [on GitLab][gl] and [on GitHub][gh].
-
-
-[gl]: https://gitlab.com/kmindi/latex-docker
-[gh]: https://github.com/kmindi/latex-docker
-
+Including biber. Based on [aergus/latex](https://hub.docker.com/r/aergus/latex/)

@@ -11,3 +11,6 @@ RUN apt-get update && apt-get install -y \
   apt-get --purge remove -y .\*-doc$ && \
   # Remove more unnecessary stuff
   apt-get clean -y
+
+# update fontdb
+RUN luaotfload-tool --update

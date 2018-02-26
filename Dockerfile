@@ -13,7 +13,11 @@ RUN apt-get update && apt-get install -y \
   # Remove more unnecessary stuff
   apt-get clean -y
 
-RUN tlmgr init-usertree && tlmgr update --self && tlmgr update --all && tlmgr install scheme-full && tlmgr info
+RUN tlmgr init-usertree --usermode && \
+  tlmgr update --self --usermode && \
+  tlmgr update --all --usermode && \
+  tlmgr install scheme-full --usermode && \
+  tlmgr info --usermode 
 
 # update fontdb
 RUN luaotfload-tool --update

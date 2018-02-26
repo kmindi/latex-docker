@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y \
   wget \
   git \
   make \
+  xzdec \
   texlive-full \
   biber && \
   # Removing documentation packages *after* installing them is kind of hacky,

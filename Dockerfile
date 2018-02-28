@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
   git \
   make \
   xzdec \
-  texlive-full \
+  texlive-base \
   biber && \
   # Removing documentation packages *after* installing them is kind of hacky,
   # but it only adds some overhead while building the image.
@@ -13,13 +13,14 @@ RUN apt-get update && apt-get install -y \
   # Remove more unnecessary stuff
   apt-get clean -y
 
+# install all available packages in their current version via CTAN
 RUN tlmgr init-usertree --usermode || true && \
   tlmgr update --self --usermode || true && \
   tlmgr update --all --usermode || true && \
   tlmgr install scheme-full --usermode || true && \
   tlmgr info --usermode || true && \
   updmap -sys || true && \
-  updmap - user || true 
+  updmap -user || true 
 
 # update fontdb
 RUN luaotfload-tool --update

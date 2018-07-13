@@ -22,5 +22,10 @@ RUN tlmgr init-usertree --usermode || true && \
   updmap -sys || true && \
   updmap -user || true 
 
+# install additional nonfree fonts
+RUN wget -q http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts && \
+  texlua ./install-getnonfreefonts && \
+  getnonfreefonts-sys -a && \
+
 # update fontdb
 RUN luaotfload-tool --update
